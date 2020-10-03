@@ -17,7 +17,7 @@ export default function AddLocation({ locationList, setLocationList }) {
       }, 2000);
     } else {
       setError(false);
-      setLocationList((prevList) => [...prevList, input.toLowerCase()]);
+      setLocationList((prevList) => [...prevList, input.toLowerCase().trim()]);
       setInput('');
     }
   }
