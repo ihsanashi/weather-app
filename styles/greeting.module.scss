@@ -1,0 +1,19 @@
+@import './variables';
+
+.greeting__text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: $grey-700;
+  margin-bottom: 20px;
+}
+
+.start__text {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 26px;
+  color: $grey-800;
+  margin-bottom: 10px;
+}

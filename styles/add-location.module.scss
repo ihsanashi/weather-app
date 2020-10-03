@@ -1,0 +1,55 @@
+@import './variables';
+
+.wrapper {
+  background: $white;
+  border: 1px solid $grey-300;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.wrapper:focus-within {
+  border: 1px solid $blue;
+  transition: all 0.3s ease-in-out;
+}
+
+.flex__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input {
+  border: none;
+  width: 80%;
+  padding-bottom: 2px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: $grey-700;
+  transition: all 0.3s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.add__button {
+  border: unset;
+  padding: 8px 30px;
+  color: $white;
+  font-weight: 600;
+  background: $blue-900;
+  border-radius: 6px;
+}
+
+.add__button:hover {
+  cursor: pointer;
+}
+
+.error__msg {
+  color: #e35050;
+  font-size: 14px;
+  margin-top: 10px;
+}
