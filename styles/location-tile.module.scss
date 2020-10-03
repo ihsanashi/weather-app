@@ -9,6 +9,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.container:hover {
+  cursor: pointer;
+}
+
 .blue__container {
   border: 2px solid $blue;
   transition: all 0.3s ease-in-out;

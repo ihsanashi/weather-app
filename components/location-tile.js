@@ -25,6 +25,7 @@ export default function LocationTile({ location }) {
         className={`${styles.container} ${
           isOpen ? styles.blue__container : ''
         }`}
+        onClick={() => setOpen(!isOpen)}
       >
         <section className={styles.top}>
           <div className={styles.grow}>
