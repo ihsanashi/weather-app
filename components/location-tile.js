@@ -5,6 +5,7 @@ import {
   HiOutlineArrowDown,
   HiOutlineArrowUp,
 } from 'react-icons/hi';
+import { Line } from 'react-chartjs-2';
 
 export default function LocationTile({ location }) {
   let baseUrl =
@@ -12,12 +13,74 @@ export default function LocationTile({ location }) {
   let fullUrl = baseUrl + location.replace(/ /g, '%20');
   const [data, setData] = useState(null);
   const [isOpen, setOpen] = useState(false);
-
-  const fetchWeatherData = () => fetch(fullUrl).then((res) => res.json());
+  const [label, setLabel] = useState('');
+  let [temperatures, setTemperatures] = useState([]);
 
   useEffect(() => {
-    fetchWeatherData().then((data) => setData(data));
+    async function fetchWeatherData() {
+      const fullResponse = await fetch(fullUrl);
+      const data = await fullResponse.json();
+      setData(data);
+      setLabel(data.location.name);
+      data.forecast.forecastday[0].hour.map((hour) => {
+        temperatures.push(hour.temp_c);
+        setTemperatures(temperatures);
+      });
+    }
+    fetchWeatherData();
   }, []);
+
+  const weatherChartData = {
+    labels: [
+      '12AM',
+      '1Am',
+      '2AM',
+      '3AM',
+      '4AM',
+      '5AM',
+      '6AM',
+      '7AM',
+      '8AM',
+      '9AM',
+      '10AM',
+      '11AM',
+      '12PM',
+      '1PM',
+      '2PM',
+      '3PM',
+      '4PM',
+      '5PM',
+      '6PM',
+      '7PM',
+      '8PM',
+      '9PM',
+      '10PM',
+      '11PM',
+    ],
+    datasets: [
+      {
+        label: `Forecast for ${label}`,
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: '#EFE3FD',
+        borderColor: '#9D61EB',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: '#1A6BE5',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: '#D8315B',
+        pointHoverBorderColor: '#78CAD2',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: temperatures,
+      },
+    ],
+  };
 
   return (
     data && (
@@ -82,7 +145,14 @@ export default function LocationTile({ location }) {
             !isOpen ? styles.collapsed : ''
           }`}
         />
-        <section className={styles.bottom}></section>
+        <section
+          className={`${styles.bottom} ${!isOpen ? styles.collapsed : ''}`}
+        >
+          <Line
+            data={weatherChartData}
+            legend={{ bottom: 'Hours', left: '°C' }}
+          />
+        </section>
       </div>
     )
   );
