@@ -8,8 +8,7 @@ import {
 import { Line } from 'react-chartjs-2';
 
 export default function LocationTile({ location }) {
-  let baseUrl =
-    'https://api.weatherapi.com/v1/forecast.json?key=069d9221621d4a4a807100404200310&q=';
+  let baseUrl = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=`;
   let fullUrl = baseUrl + location.replace(/ /g, '%20');
   const [data, setData] = useState(null);
   const [isOpen, setOpen] = useState(false);
