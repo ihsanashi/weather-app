@@ -23,6 +23,16 @@ export default function Home() {
       <Head>
         <title>Check The Weather</title>
         <link rel='icon' href='/favicon.ico' />
+        <meta
+          name='description'
+          content='A Progressive Web App (PWA) for checking weathers of different locations'
+        />
+        <meta name='robots' content='index, follow' />
+        <meta
+          name='viewport'
+          content='initial-scale=1.0, width=device-width'
+          key='viewport'
+        />
       </Head>
       <main className={styles.main}>
         <img
