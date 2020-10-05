@@ -4,12 +4,18 @@ import {
   HiOutlineChevronRight,
   HiOutlineArrowDown,
   HiOutlineArrowUp,
+  HiOutlineTrash,
 } from 'react-icons/hi';
 import { Line } from 'react-chartjs-2';
 
-export default function LocationTile({ location }) {
+export default function LocationTile({
+  location,
+  locationList,
+  setLocationList,
+}) {
   let baseUrl = `https://api.weatherapi.com/v1/forecast.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=`;
   let fullUrl = baseUrl + location.replace(/ /g, '%20');
+
   const [data, setData] = useState(null);
   const [isOpen, setOpen] = useState(false);
   const [label, setLabel] = useState('');
@@ -27,7 +33,7 @@ export default function LocationTile({ location }) {
       });
     }
     fetchWeatherData();
-  }, []);
+  }, [locationList]);
 
   const weatherChartData = {
     labels: [
@@ -81,13 +87,19 @@ export default function LocationTile({ location }) {
     ],
   };
 
+  const handleDelete = () => {
+    let locationToDelete = data.location.name;
+    locationToDelete = locationToDelete.toLowerCase();
+    locationList = locationList.filter((item) => item !== locationToDelete);
+    setLocationList(locationList);
+  };
+
   return (
     data && (
       <div
         className={`${styles.container} ${
           isOpen ? styles.blue__container : ''
         }`}
-        onClick={() => setOpen(!isOpen)}
       >
         <section className={styles.top}>
           <div className={styles.grow}>
@@ -151,6 +163,16 @@ export default function LocationTile({ location }) {
             data={weatherChartData}
             legend={{ bottom: 'Hours', left: '°C' }}
           />
+        </section>
+        <section
+          className={`${styles.delete__section} ${
+            !isOpen ? styles.collapsed : ''
+          }`}
+        >
+          <button className={styles.delete__btn} onClick={handleDelete}>
+            <HiOutlineTrash />
+            Remove
+          </button>
         </section>
       </div>
     )

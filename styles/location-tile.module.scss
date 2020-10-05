@@ -9,10 +9,6 @@
   transition: all 0.3s ease-in-out;
 }
 
-.container:hover {
-  cursor: pointer;
-}
-
 .blue__container {
   border: 2px solid $blue;
   transition: all 0.3s ease-in-out;
@@ -158,4 +154,29 @@
   color: #e35050;
   font-size: 20px;
   margin-right: 5px;
+}
+
+.delete__section {
+  margin-top: 20px;
+}
+
+.delete__btn {
+  border: unset;
+  border-radius: 6px;
+  padding: 5px 20px;
+  background-color: $danger-light-red;
+  color: $danger-red;
+  font-weight: 500;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  gap: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: $danger-red;
+    color: $white;
+    transition: all 0.2s ease-in-out;
+  }
 }

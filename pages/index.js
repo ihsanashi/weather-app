@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.scss';
 import { useState, useEffect } from 'react';
 import AddLocation from '../components/add-location';
 import LocationTile from '../components/location-tile';
+import RemoveAll from '../components/remove-all';
 
 export default function Home() {
   const [locationList, setLocationList] = useState([]);
@@ -18,6 +19,7 @@ export default function Home() {
   useEffect(() => {
     localStorage.setItem('loc-data', JSON.stringify(locationList));
   });
+
   return (
     <div className={styles.container}>
       <Head>
@@ -48,8 +50,13 @@ export default function Home() {
           locationList={locationList}
           setLocationList={setLocationList}
         />
-        {locationList.map((item) => (
-          <LocationTile key={item} location={item} />
+        {locationList.map((item, index) => (
+          <LocationTile
+            key={index}
+            location={item}
+            locationList={locationList}
+            setLocationList={setLocationList}
+          />
         ))}
       </main>
     </div>
