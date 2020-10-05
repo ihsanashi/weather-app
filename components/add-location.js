@@ -26,6 +26,7 @@ export default function AddLocation({ locationList, setLocationList }) {
     <section className={styles.wrapper}>
       <div className={styles.flex__container}>
         <input
+          aria-label='Add new location'
           value={input}
           type='index'
           name='location-input'

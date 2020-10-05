@@ -25,7 +25,11 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className={styles.main}>
-        <img className={styles.appicon} src='/icon.svg' />
+        <img
+          className={styles.appicon}
+          src='/icon.svg'
+          alt='Check The Weather appicon'
+        />
         <Greeting
           locationList={locationList}
           setLocationList={setLocationList}
