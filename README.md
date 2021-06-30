@@ -1,3 +1,15 @@
+# Table of Contents
+
+- [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+    - [Technologies](#technologies)
+  - [Screenshots/Gifs](#screenshotsgifs)
+  - [Live site](#live-site)
+    - [What could be added/improved](#what-could-be-addedimproved)
+  - [Getting Started](#getting-started)
+  - [Learn More](#learn-more)
+  - [Deploy on Vercel](#deploy-on-vercel)
+
 ## Introduction
 
 This is a web app for users to add and check weather information of multiple locations. The weather information displayed will show temperatures (in degrees Celcius) over the course of the next 24 hours.
