@@ -1,15 +1,28 @@
-### Introduction
+## Introduction
 
 This is a web app for users to add and check weather information of multiple locations. The weather information displayed will show temperatures (in degrees Celcius) over the course of the next 24 hours.
 
-#### Technologies
+### Technologies
 
 - React and Next.js for UI
 - Styling through SASS modules
 - Local storage for persisting data
-- useState hook for managing an array of locations added by the user
+- useState hook for managing a list of locations added by the user
 - useEffect hook to save into and retrieve from local storage
-- next-pwa library to serve the client as a progressive web app
+- *next-pwa* library to serve the client as a progressive web app
+
+## Screenshots/Gifs
+
+[Flow](./public/media/weather.gif)
+
+## Live site
+
+You can check out the live site [here](https://covid19-dashboard-ihsan.vercel.app/).
+
+### What could be added/improved
+
+- Autocomplete location input
+- Auto collapse weather card when a different one is clicked
 
 ## Getting Started
 
