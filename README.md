@@ -17,7 +17,7 @@ This is a web app for users to add and check weather information of multiple loc
 
 ## Live site
 
-You can check out the live site [here](https://covid19-dashboard-ihsan.vercel.app/).
+You can check out the live site [here](https://check-the-weather.vercel.app/).
 
 ### What could be added/improved
 
